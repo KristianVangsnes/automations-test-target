@@ -7,6 +7,6 @@ def test_process_data():
 
 def test_convert_value_fails():
     """This test deliberately fails to give CI Fixer something to fix."""
-    from src.app import convert_value
+    from src.converter import convert_value
     result = convert_value("hello")
     assert result == 42
