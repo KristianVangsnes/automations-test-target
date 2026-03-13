@@ -21,11 +21,12 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: |
-          pip install ruff pytest
+        run: pip install ruff pytest
 
       - name: Lint
         run: ruff check src/ tests/
 
       - name: Test
+        env:
+          PYTHONPATH: .
         run: pytest tests/ -v
