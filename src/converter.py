@@ -1,5 +1,5 @@
 def convert_value(x):
-    return int("abc")
+    return int(x)
 
 
 if __name__ == "__main__":
