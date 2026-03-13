@@ -1,7 +1,16 @@
-AWS_ACCESS_KEY = "AKIAIOSFODNN7EXAMPLE"
-AWS_SECRET_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+import os
 
-DATABASE_URL = "postgresql://admin:supersecret@prod-db.internal:5432/myapp"
+
+def _require_env(name):
+    value = os.getenv(name)
+    if not value:
+        raise RuntimeError(f"Missing required environment variable: {name}")
+    return value
+
+
+AWS_ACCESS_KEY = _require_env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_KEY = _require_env("AWS_SECRET_ACCESS_KEY")
+DATABASE_URL = _require_env("DATABASE_URL")
 
 
 def get_connection_string():

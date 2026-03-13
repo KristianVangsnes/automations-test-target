@@ -1,3 +1,3 @@
 def parse_config(raw):
-    value = l
+    value = raw
     return value
